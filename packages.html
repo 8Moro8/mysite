@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страж - О нас</title>
+    <link rel="stylesheet" href="packages-s.css">
+</head>
+<body>
+    <div id="about-container">
+        <div class="header">
+            <h1>Охранное агентство "Страж"</h1>
+            <button class="menu-btn" id="menu-toggle">Меню</button>
+            <button id="logout-btn">Выйти</button> <!-- Кнопка выхода -->
+        </div>
+
+        <div class="menu">
+            <button class="close-btn" onclick="document.getElementById('menu-toggle-checkbox').checked = false;">Закрыть</button>
+            <ul>
+                <li><a href="index.html" >Главная</a></li>
+                <li><a href="packages.html">Пакеты Защиты</a></li>
+                <li><a href="employees.html">Сотрудники компании</a></li>
+                <li><a href="history.html">История Защиты</a></li>
+                <li><a href="contacts.html" id="contact-link">Контакты</a></li>
+            </ul>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="container">
+            <h2>Наши предложения по защите</h2>
+            <div class="product-list">
+                <!-- Пример товара -->
+                <div class="product-item" onclick="window.location.href='product1.html'">
+                    <img src="product1.jpg" alt="Продукт 1">
+                    <h3>Защита людьми</h3>
+                    <p>Цена: 5000 ₸</p>
+                    <p>Минимальное описание продукта или услуги по защите людьми. Нажмите для подробностей.</p>
+                </div>
+
+                <div class="product-item" onclick="window.location.href='product2.html'">
+                    <img src="product2.jpg" alt="Продукт 2">
+                    <h3>Защита технологиями</h3>
+                    <p>Цена: 8000 ₸</p>
+                    <p>Минимальное описание продукта или услуги по защите с использованием технологий. Нажмите для подробностей.</p>
+                </div>
+
+                <tr>
+                    <td colspan="2" class="footer">© 2024 Охранное агентство "Страж"</td>
+                </tr>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="two.js"></script>
+</body>
+</html>
+
