@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Охранное агентство "Страж"</title>
     <link rel="stylesheet" href="reg.css"> <!-- Подключаем CSS файл -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
     <!-- Окно авторизации -->
@@ -12,7 +15,7 @@
         <h1>Охранное агентство "Страж"</h1>
         <h2>Авторизация</h2>
         <form id="login-form">
-            <input type="text" id="login-identifier" placeholder="Почта или Никнейм" required><br>
+            <input type="text" id="login-identifier" placeholder="Почта или логин" required><br>
             <input type="password" id="password" placeholder="Пароль" required><br>
             <button type="submit">Войти</button>
         </form>
@@ -37,4 +40,3 @@
     <script src="reg.js"></script> <!-- Подключаем JavaScript файл -->
 </body>
 </html>
-

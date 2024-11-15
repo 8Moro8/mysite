@@ -16,7 +16,6 @@ body {
     background-color: #333; /* Темный фон окна */
     color: white;
     padding: 20px;
-    width: 300px; /* Фиксированная ширина окна */
     border-radius: 8px; /* Скругление углов */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Тень */
   }
@@ -33,6 +32,7 @@ body {
     border: 1px solid #003d7a; /* Цвет рамки */
     border-radius: 5px; /* Скругление углов поля */
     background-color: #ecf0f1; /* Цвет фона поля */
+    width: 400px;
     transition: border-color 0.3s; /* Плавный переход при фокусе */
   }
   
