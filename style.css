@@ -1,22 +1,40 @@
 /* Общие стили */
 body {
   display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
-  align-items: center; /* Центрирование по вертикали */
-  height: 100vh; /* Высота 100% от высоты экрана */
-  margin: 0; /* Убираем отступы у body */
-  background-color: #1a1a1a; /* Темный фон для лучшего контраста */
+  justify-content: flex-start; /* Выравнивание по верхнему краю */
+  align-items: flex-start; /* Выравнивание по левому краю */
+  flex-direction: column; /* Вертикальное расположение */
+  margin: 0;
+  height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Times New Roman', Times, serif;
+  overflow: hidden;
 }
 
+/* Шапка */
+.header {
+  width: 100%; /* Ширина на всю страницу */
+  background: linear-gradient(90deg, #004080, #003366);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: fixed; /* Фиксируем шапку сверху */
+  top: 0;
+  left: 0;
+  height: 80px;
+}
+
+/* Контейнер для контента */
 .container {
+  margin-top: 120px; /* Отступ сверху, чтобы контент не перекрывался шапкой */
   display: flex;
-  position: fixed;
-  flex-direction: column; /* Вертикальное расположение контейнеров */
-  justify-content: center; /* Центрирование по вертикали */
-  align-items: center; /* Центрирование по горизонтали */
-  width: 100%; /* Ширина 100% */
+  flex-direction: column; /* Вертикальное расположение элементов */
+  justify-content: center; /* Центрирование контента по вертикали */
+  align-items: center; /* Центрирование контента по горизонтали */
+  width: 100%;
+  height: 100%; /* Заполнение оставшегося пространства */
 }
-
 
 /* Заголовки */
 h1, h2 {
@@ -25,11 +43,11 @@ h1, h2 {
 }
 
 /* Кнопка меню */
-.menu-btn {
+.menu-toggle {
   position: fixed; /* Используем фиксированное позиционирование */
   left: 20px; /* Отступ слева */
   top: 20px; /* Отступ сверху, можете изменить на нужное значение */
-  font-size: 18px; /* Размер шрифта */
+  font-size: 20px; /* Размер шрифта */
   background: #0066cc; /* Цвет фона кнопки меню */
   border: none; /* Без рамки */
   color: white; /* Цвет текста кнопки меню */
@@ -41,13 +59,14 @@ h1, h2 {
   width: 80px
 }
 
-.menu-btn:hover {
+.menu-toggle:hover {
   background: #005bb5; /* Цвет при наведении */
 }
 
 
 /* Кнопки */
 button {
+  font-family: 'Times New Roman', Times, serif; /* Используем Times New Roman, если он доступен */
   position: fixed; /* Используем фиксированное позиционирование */
   right: 20px; /* Отступ*/
   top: 20px; /* Отступ сверху, можете изменить на нужное значение */
@@ -68,77 +87,72 @@ button:hover {
   background-color: #c0392b; /* Темнее при наведении */
 }
 
-
-/* Общие стили для основного контента */
-.header {
-  background: linear-gradient(90deg, #004080, #003366);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
+/* Меню */
 .menu {
   position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
+  top: -400px; /* Начальное положение меню за верхним краем экрана (высота меню 250px) */
+  left: 0;
+  width: 10%; /* Меню будет на всю ширину экрана */
+  height: 300px; /* Высота меню */
   background-color: #004080;
   color: white;
   overflow-y: auto;
-  transition: transform 0.3s ease;
-  padding-top: 10px;
+  transition: top 0.3s ease; /* Анимация по свойству top */
+  padding-top: 50px;
   z-index: 10;
+  border: 2px solid #000000; /* Добавляем рамку толщиной 2px, цвет - темно-серый (#333) */
+  border-radius: 10px; /* Скругляем углы */
 }
 
 /* Класс для отображения меню */
 .menu.active {
-  transform: translateX(250px); /* Позиция при открытии меню */
+  top: 0; /* При активации меню оно появляется сверху */
 }
 
+/* Кнопка закрытия */
 .close-btn {
-  position: relative;
-  top: 10px; /* Положение кнопки закрытия */
-  right: 10px; /* Положение кнопки закрытия */
-  font-size: 18px; /* Размер шрифта кнопки закрытия */
-  background: #cc0000; /* Цвет фона кнопки закрытия */
-  padding: 5px 10px; /* Отступы */
-  color: white; /* Цвет текста кнопки закрытия */
-  cursor: pointer; /* Указатель на кнопке */
-  border-radius: 5px; /* Скругление углов кнопки закрытия */
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  font-size: 20px;
+  background: #cc0000;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
   width: 100%;
 }
 
+/* Кнопки меню */
 .menu ul {
-  list-style-type: none; /* Убрать маркеры у списка */
-  padding: 0; /* Убрать отступы */
+  list-style-type: none;
+  padding: 0;
 }
 
 .menu ul li {
-  padding: 10px; /* Отступы для пунктов меню */
-  text-align: center; /* Центрирование текста */
+  padding: 10px;
+  text-align: center;
 }
 
 .menu ul li a {
-  color: white; /* Цвет ссылок */
-  text-decoration: none; /* Убрать подчеркивание */
-  font-size: 18px; /* Размер шрифта ссылок */
-  display: block; /* Отображение в блочном формате */
-  transition: background-color 0.3s; /* Плавный переход */
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: background-color 0.3s;
 }
 
 .menu ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Цвет фона при наведении */
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Основная структура */
 .layout {
   width: 50%; /* Ширина таблицы */
-  height: 84vh; /* Высота таблицы */
+  height: 82vh; /* Высота таблицы */
   border-collapse: separate; /* Разделение ячеек */
   border-spacing: 10px; /* Расстояние между ячейками */
-  margin: 20px auto; /* Отступы сверху и снизу, автоматические отступы по бокам для центрирования */
+  margin: 130px auto; /* Отступы сверху и снизу, автоматические отступы по бокам для центрирования */
   position: relative; /* Измените на relative для правильного позиционирования */
 }
 
@@ -172,13 +186,18 @@ td:hover {
   background-color: #0059ff; /* Цвет фона баннеров */
   padding: 20px; /* Отступы */
   border-radius: 8px; /* Скругление углов */
+  height: 1vh;
 }
 
 .footer {
   text-align: center; /* Центрирование текста в подвале */
-  background-color: #000000; /* Цвет фона подвала */
-  color: white; /* Цвет текста подвала */
+  background-color: #000000; /* Цвет фона, как у шапки */
+  color: white; /* Цвет текста */
   padding: 10px; /* Отступы */
+  position: fixed; /* Фиксируем подвал внизу страницы */
+  bottom: 0; /* Прикрепляем подвал к нижней части */
+  width: 100%; /* Ширина на всю страницу */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тень для подвала */
 }
 
 p {
@@ -186,19 +205,20 @@ p {
   color: #000000; /* Цвет текста параграфов */
 }
 
-/* Контейнер бегущей строки */
 .marquee-container {
+  font-family: 'Times New Roman', Times, serif; /* Используем Times New Roman, если он доступен */
   position: fixed;
   overflow: hidden;
   background-color: #333;
   color: white;
-  padding: 20px 30px;
+  padding: 10px 10px;
   width: 100%; /* Ширина контейнера на всю страницу */
   text-align: center;
   display: flex;
   justify-content: center; /* Центрируем по горизонтали */
   align-items: center; /* Центрируем по вертикали */
   height: 10px; /* Высота контейнера */
+  top: 100px; /* Закрепляем строку сверху страницы */
 }
 
 /* Текст бегущей строки */
@@ -220,4 +240,95 @@ p {
   100% {
       transform: translateX(-200%); /* Конец строки за левым краем */
   }
+}
+
+/* Кнопка для открытия окна сообщения */
+.open-message-btn {
+  position: fixed;
+  right: 10px;
+  top: 780px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 7px; /* Уменьшаем отступы для уменьшения кнопки */
+  border: none;
+  border-radius: 50%; /* Округлая форма */
+  cursor: pointer;
+  font-size: 12px; /* Уменьшаем размер шрифта */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 75px;  /* Меньше размер кнопки */
+  width: 75px;   /* Меньше размер кнопки */
+  display: flex; /* Для центрирования текста */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.open-message-btn:hover {
+  background-color: #45a049;
+}
+
+/* Модальное окно */
+.message-modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #181818; /* Белый фон для контраста */
+  border-radius: 12px; /* Более округлые углы */
+  padding: 30px; /* Увеличенные отступы */
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более заметная тень */
+  z-index: 1000; /* Чтобы окно было поверх других элементов */
+  animation: fadeIn 0.3s ease-out; /* Плавное появление окна */
+}
+
+/* Анимация появления модального окна */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Стили для фона модального окна */
+.modal-overlay {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Фон будет под модальным окном */
+}
+
+/* Кнопка закрытия модального окна */
+.close-message-btn {
+  background-color: #cc0000;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.close-message-btn:hover {
+  background-color: #e74c3c;
+}
+
+/* Поле ввода сообщения */
+.message-input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  margin-top: 10px;
+  font-size: 16px;
 }

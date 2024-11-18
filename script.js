@@ -1,22 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
     const mainContainer = document.getElementById('main-container');
-    const menuBtn = document.getElementById('menu-toggle');
+    const menuBtn = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
     const closeBtn = document.querySelector('.close-btn');
     const aboutLink = document.getElementById('about-link');
     const contactLink = document.getElementById('contact-link');
     const logoutBtn = document.getElementById('logout-btn');
+    const openMessageBtn = document.querySelector('.open-message-btn');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const messageModal = document.querySelector('.message-modal');
+    const closeMessageBtn = document.querySelector('.close-message-btn');
+
     let users = [];
 
     // Открытие меню
-    menuBtn?.addEventListener('click', () => {
-        menu.classList.toggle('active');
+    menuBtn.addEventListener('click', () => {
+        menu.classList.add('active');
     });
 
     // Закрытие меню
-    closeBtn?.addEventListener('click', () => {
+    closeBtn.addEventListener('click', () => {
         menu.classList.remove('active');
     });
+    
+    // Функция для открытия модального окна
+    openMessageBtn.addEventListener('click', () => {
+        messageModal.style.display = 'block'; // Показываем модальное окно
+        modalOverlay.style.display = 'block'; // Показываем фон
+  });
+   
+   // Функция для закрытия модального окна
+   closeMessageBtn.addEventListener('click', () => {
+    messageModal.style.display = 'none'; // Скрываем модальное окно
+    modalOverlay.style.display = 'none'; // Скрываем фон
+  });
+
+  // Закрытие модального окна при клике на фон
+  modalOverlay.addEventListener('click', () => {
+    messageModal.style.display = 'none'; // Скрываем модальное окно
+    modalOverlay.style.display = 'none'; // Скрываем фон
+  });
 
     // Переход на страницу "О нас"
     aboutLink?.addEventListener('click', (event) => {

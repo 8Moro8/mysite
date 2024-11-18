@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Охранное агентство "Страж"</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
 
     <!-- Главная страница -->
-    <div id="main-container" style="display:none;">
+    <div id="main-container">
         <div class="header">
             <h1>Охранное агентство "Страж"</h1>
-            <button class="menu-btn" id="menu-toggle">Меню</button>
+            <button class="menu-toggle" id="menu-toggle">Меню</button>
             <button id="logout-btn">Выйти</button> <!-- Кнопка выхода -->
         </div>
         
@@ -45,7 +45,7 @@
                 <td class="news">
                     <h2>Новости</h2>
                     <p>Октябрь 2024 — Обновление системы видеонаблюдения на всех объектах клиентов.</p>
-                    <p>Сентябрь 2024 — Открытие нового офиса агентства "Страж" в городе Нур-Султан.</p>
+                    <p>Сентябрь 2024 — Открытие нового офиса агентства "Страж" в городе Москва.</p>
                 </td>
             </tr>
             <tr>
@@ -54,10 +54,30 @@
                     <p>Мы сотрудничаем с ведущими компаниями в области безопасности и инновационных технологий.</p>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2" class="footer">© 2024 Охранное агентство "Страж"</td>
-            </tr>
         </table>
+
+        <!-- Кнопка для открытия модального окна с сообщением -->
+        <button class="open-message-btn">Написать сообщение</button>
+
+        <!-- Модальное окно для ввода сообщения -->
+        <div class="modal-overlay"></div>
+        <div class="message-modal">
+            <h2>Ваше сообщение</h2>
+            <textarea class="message-input" placeholder="Введите сообщение..."></textarea>
+            <button class="close-message-btn">Закрыть</button>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer">
+            © 2024 Охранное агентство "Страж"
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer">
+        © 2024 Охранное агентство "Страж"
+        </div>
     </div>
 
     <script src="script.js"></script> <!-- Подключение вашего JavaScript файла -->
