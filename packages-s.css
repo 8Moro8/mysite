@@ -1,46 +1,53 @@
 /* Общие стили */
 body {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 100vh; /* Высота 100% от высоты экрана */
-    margin: 0; /* Убираем отступы у body */
-    background-color: #1a1a1a; /* Темный фон для лучшего контраста */
-}
-  
-.container {
-    display: flex;
-    flex-direction: column; /* Вертикальное расположение контейнеров */
-    justify-content: center; /* Центрирование по вертикали */
-    align-items: center; /* Центрирование по горизонтали */
-    width: 100%; /* Ширина 100% */
-}
-
-/* Контейнеры для авторизации и регистрации */
-.login-container,
-.register-container,
-.main-container {
+    justify-content: flex-start; /* Выравнивание по верхнему краю */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    flex-direction: column; /* Вертикальное расположение */
+    margin: 0;
+    height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'Times New Roman', Times, serif;
     overflow: hidden;
-    background-color: #333;
+  }
+  
+  /* Шапка */
+  .header {
+    width: 100%; /* Ширина на всю страницу */
+    background: linear-gradient(90deg, #004080, #003366);
     color: white;
-    padding: 10px 0;
-    width: calc(100% - 250px); /* Учитываем ширину меню */
+    padding: 10px;
     text-align: center;
-    margin-left: 250px; /* Отступ слева, чтобы строка не заходила на меню */
-}
-
-/* Заголовки */
-h1, h2 {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: fixed; /* Фиксируем шапку сверху */
+    top: 0;
+    left: 0;
+    height: 80px;
+  }
+  
+  /* Контейнер для контента */
+  .container {
+    margin-top: 120px; /* Отступ сверху, чтобы контент не перекрывался шапкой */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: center; /* Центрирование контента по вертикали */
+    align-items: center; /* Центрирование контента по горизонтали */
+    width: 100%;
+    height: 100%; /* Заполнение оставшегося пространства */
+  }
+  
+  /* Заголовки */
+  h1, h2 {
     color: #ffd900; /* Цвет заголовков */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Тень для заголовков */
-}
-
-/* Кнопка меню */
-.menu-btn {
+  }
+  
+  /* Кнопка меню */
+  .menu-toggle {
     position: fixed; /* Используем фиксированное позиционирование */
     left: 20px; /* Отступ слева */
     top: 20px; /* Отступ сверху, можете изменить на нужное значение */
-    font-size: 18px; /* Размер шрифта */
+    font-size: 20px; /* Размер шрифта */
     background: #0066cc; /* Цвет фона кнопки меню */
     border: none; /* Без рамки */
     color: white; /* Цвет текста кнопки меню */
@@ -49,202 +56,346 @@ h1, h2 {
     border-radius: 5px; /* Скругление углов */
     transition: background-color 0.3s; /* Плавный переход */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Тень для кнопки */
-    width: 80px;
-}
-
-.menu-btn:hover {
+    width: 80px
+  }
+  
+  .menu-toggle:hover {
     background: #005bb5; /* Цвет при наведении */
-}
-
-/* Поля ввода */
-input {
-    padding: 12px;
-    margin: 10px 0; /* Отступы сверху и снизу */
-    width: 100%;
-    border: 1px solid #003d7a; /* Цвет рамки */
-    border-radius: 5px; /* Скругление углов поля */
-    background-color: #ecf0f1; /* Цвет фона поля */
-    transition: border-color 0.3s; /* Плавный переход при фокусе */
-}
-
-input:focus {
-    border-color: #ffd900; /* Цвет рамки при фокусе */
-}
-
-/* Кнопки */
-button {
-    padding: 12px 20px;
+  }
+  
+  
+  /* Кнопки */
+  button {
+    font-family: 'Times New Roman', Times, serif; /* Используем Times New Roman, если он доступен */
+    position: fixed; /* Используем фиксированное позиционирование */
+    right: 20px; /* Отступ*/
+    top: 20px; /* Отступ сверху, можете изменить на нужное значение */
+    font-size: 20px; /* Размер шрифта */
     background-color: #e74c3c; /* Цвет фона кнопки */
     color: white; /* Цвет текста кнопки */
     border: none; /* Без рамки */
     border-radius: 5px; /* Скругление углов кнопки */
     cursor: pointer; /* Указатель на кнопке */
-    margin: 0px 10px; /* Отступы сверху и снизу */
-    width: 100%; /* Ширина кнопки */
+    margin: 10px 10px; /* Отступы сверху и снизу */
+    width: 80px; /* Ширина кнопки */
     transition: background-color 0.3s; /* Плавный переход */
-}
-
-/* Эффект при наведении на кнопку */
-button:hover {
+    padding: 10px; /* Отступы */
+  }
+  
+  /* Эффект при наведении на кнопку */
+  button:hover {
     background-color: #c0392b; /* Темнее при наведении */
-}
-
-/* Показываем контейнер авторизации по умолчанию */
-#login-container {
-    display: block; /* Показать контейнер авторизации */
-}
-
-#logout-btn {
-    position: absolute;
-    top: 10px;
-    right: 5px;
-    padding: 10px 20px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 5%;
-}
-
-#logout-btn:hover {
-    background-color: #c0392b;
-}
-
-/* Общие стили для основного контента */
-.header {
-    background: linear-gradient(90deg, #004080, #003366);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.menu {
+  }
+  
+  /* Меню */
+  .menu {
     position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
+    top: -400px; /* Начальное положение меню за верхним краем экрана (высота меню 250px) */
+    left: 0;
+    width: 10%; /* Меню будет на всю ширину экрана */
+    height: 300px; /* Высота меню */
     background-color: #004080;
     color: white;
     overflow-y: auto;
-    transition: transform 0.3s ease;
-    padding-top: 10px;
+    transition: top 0.3s ease; /* Анимация по свойству top */
+    padding-top: 50px;
     z-index: 10;
-}
-
-/* Класс для отображения меню */
-.menu.active {
-    transform: translateX(250px); /* Позиция при открытии меню */
-}
-
-.close-btn {
+    border: 2px solid #000000; /* Добавляем рамку толщиной 2px, цвет - темно-серый (#333) */
+    border-radius: 10px; /* Скругляем углы */
+  }
+  
+  /* Класс для отображения меню */
+  .menu.active {
+    top: 0; /* При активации меню оно появляется сверху */
+  }
+  
+  /* Кнопка закрытия */
+  .close-btn {
     position: absolute;
-    top: 10px; /* Положение кнопки закрытия */
-    right: 10px; /* Положение кнопки закрытия */
-    font-size: 18px; /* Размер шрифта кнопки закрытия */
-    background: #cc0000; /* Цвет фона кнопки закрытия */
-    padding: 5px 10px; /* Отступы */
-    color: white; /* Цвет текста кнопки закрытия */
-    cursor: pointer; /* Указатель на кнопке */
-    border-radius: 5px; /* Скругление углов кнопки закрытия */
-}
-
-.menu ul {
-    list-style-type: none; /* Убрать маркеры у списка */
-    padding: 0; /* Убрать отступы */
-}
-
-.menu ul li {
-    padding: 10px; /* Отступы для пунктов меню */
-    text-align: center; /* Центрирование текста */
-}
-
-.menu ul li a {
-    color: white; /* Цвет ссылок */
-    text-decoration: none; /* Убрать подчеркивание */
-    font-size: 18px; /* Размер шрифта ссылок */
-    display: block; /* Отображение в блочном формате */
-    transition: background-color 0.3s; /* Плавный переход */
-}
-
-.menu ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Цвет фона при наведении */
-}
-
-/* Основная структура */
-.layout {
+    top: 10px;
+    right: -10px;
+    font-size: 20px;
+    background: #cc0000;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  /* Кнопки меню */
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Основная структура */
+  .layout {
     width: 50%; /* Ширина таблицы */
-    height: 84vh; /* Высота таблицы */
+    height: 82vh; /* Высота таблицы */
     border-collapse: separate; /* Разделение ячеек */
     border-spacing: 10px; /* Расстояние между ячейками */
-    margin: 20px auto; /* Отступы сверху и снизу, автоматические отступы по бокам для центрирования */
+    margin: 130px auto; /* Отступы сверху и снизу, автоматические отступы по бокам для центрирования */
     position: relative; /* Измените на relative для правильного позиционирования */
-}
-
-td {
+  }
+  
+  
+  td {
     border: 1px solid #be5600; /* Цвет рамки ячеек */
     padding: 20px; /* Отступы внутри ячеек */
     background-color: #f8f400; /* Цвет фона ячеек */
     border-radius: 8px; /* Скругление углов ячеек */
     transition: background-color 0.3s; /* Плавный переход */
-}
-
-td:hover {
+  }
+  
+  td:hover {
     background-color: #ff9900; /* Цвет фона при наведении на ячейку */
+  }
+  
+  /* Стиль для контейнера товаров */
+  .product-list {
+    display: flex; /* Используем flexbox для расположения товаров */
+    flex-wrap: wrap; /* Товары могут обтекать, если места не хватает */
+    justify-content: space-between; /* Расстояние между элементами */
+    width: 100%; /* Ширина контейнера на всю страницу */
 }
 
-.content {
-    width: 50%; /* Ширина контента */
-    background-color: #0059ff; /* Цвет фона контента */
-    border-radius: 8px; /* Скругление углов */
+  .product-item {
+    width: 45%; /* Ширина товара - 45% от родительского контейнера */
+    background-color: #0059ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
 }
 
-.news {
-    width: 30%; /* Ширина новостей */
-    background-color: #0059ff; /* Цвет фона новостей */
-    border-radius: 8px; /* Скругление углов */
+  /* Эффект при наведении на элемент товара */
+  .product-item:hover {
+    background-color: #004bb5; /* Изменение цвета при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 
-.banners {
-    text-align: center; /* Центрирование текста */
-    background-color: #0059ff; /* Цвет фона баннеров */
-    padding: 20px; /* Отступы */
-    border-radius: 8px; /* Скругление углов */
+  /* Стиль для изображения товара */
+  .product-item img {
+    width: 100%; /* Ширина изображения на всю ширину контейнера */
+    max-height: 200px; /* Ограничиваем максимальную высоту изображения */
+    object-fit: cover; /* Обрезаем изображение по размеру контейнера */
+    border-radius: 8px; /* Скругление углов изображения */
+    margin-bottom: 10px; /* Отступ снизу */
 }
 
-.footer {
+  /* Стиль для заголовка товара */
+  .product-item h3 {
+    font-size: 22px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+  /* Стиль для описания товара */
+  .product-item p {
+    color: #f8f8f8; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+  /* Стиль для цены */
+  .product-item .price {
+    font-size: 20px; /* Размер шрифта цены */
+    color: #ffd700; /* Цвет цены (золотой) */
+    font-weight: bold; /* Жирный текст */
+}
+  
+  .footer {
     text-align: center; /* Центрирование текста в подвале */
-    background-color: #000000; /* Цвет фона подвала */
-    color: white; /* Цвет текста подвала */
+    background-color: #000000; /* Цвет фона, как у шапки */
+    color: white; /* Цвет текста */
     padding: 10px; /* Отступы */
-}
-
-p {
+    position: fixed; /* Фиксируем подвал внизу страницы */
+    bottom: 0; /* Прикрепляем подвал к нижней части */
+    width: 100%; /* Ширина на всю страницу */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тень для подвала */
+  }
+  
+  p {
     font-size: 18px; /* Размер шрифта параграфов */
     color: #000000; /* Цвет текста параграфов */
-}
-
-/* Контейнер бегущей строки */
-.marquee-container {
+  }
+  
+  .marquee-container {
+    font-family: 'Times New Roman', Times, serif; /* Используем Times New Roman, если он доступен */
+    position: fixed;
     overflow: hidden;
     background-color: #333;
     color: white;
-    padding: 20px 30px;
+    padding: 10px 10px;
     width: 100%; /* Ширина контейнера на всю страницу */
-    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 10px; /* Высота контейнера */
+    top: 100px; /* Закрепляем строку сверху страницы */
+  }
+  
+  /* Текст бегущей строки */
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: slideMarquee 15s linear infinite;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    left: 15%; /* Начальная позиция строки за правым краем */
+  }
+  
+  /* Анимация бегущей строки */
+  @keyframes slideMarquee {
+    0% {
+        transform: translateX(200%); /* Начало строки за правым краем */
+    }
+    100% {
+        transform: translateX(-200%); /* Конец строки за левым краем */
+    }
+  }
+  
+  /* Кнопка для открытия окна сообщения */
+  .open-message-btn {
+    position: fixed;
+    right: 10px;
+    top: 780px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 7px 7px; /* Уменьшаем отступы для уменьшения кнопки */
+    border: none;
+    border-radius: 50%; /* Округлая форма */
+    cursor: pointer;
+    font-size: 12px; /* Уменьшаем размер шрифта */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    height: 75px;  /* Меньше размер кнопки */
+    width: 75px;   /* Меньше размер кнопки */
+    display: flex; /* Для центрирования текста */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+  }
+  
+  /* Адаптация под широкие экраны (мониторы больше 1440px) */
+  @media (min-width: 1441px) {
+    .open-message-btn {
+      right: 20px; /* Увеличенный отступ от правого края */
+      top: 800px; /* Увеличенный отступ от нижнего края */
+      height: 90px; /* Крупнее кнопка */
+      width: 90px;
+      font-size: 16px; /* Увеличенный размер текста */
+    }
+  }
+  
+  /* Адаптация под стандартные экраны (1024px–1440px) */
+  @media (max-width: 1440px) and (min-width: 1024px) {
+    .open-message-btn {
+      right: 20px; /* Стандартный отступ */
+      top: 30px;
+      height: 80px; /* Обычный размер кнопки */
+      width: 80px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Адаптация под узкие экраны (меньше 1024px) */
+  @media (max-width: 1023px) {
+    .open-message-btn {
+      right: 15px; /* Уменьшенный отступ */
+      top: 20px; /* Уменьшенный отступ */
+      height: 70px; /* Меньший размер кнопки */
+      width: 70px;
+      font-size: 12px; /* Уменьшенный размер текста */
+    }
+  }
+  
+  .open-message-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Модальное окно */
+  .message-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #181818; /* Белый фон для контраста */
+    border-radius: 12px; /* Более округлые углы */
+    padding: 30px; /* Увеличенные отступы */
+    width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более заметная тень */
+    z-index: 1000; /* Чтобы окно было поверх других элементов */
+    animation: fadeIn 0.3s ease-out; /* Плавное появление окна */
+  }
+  
+  /* Анимация появления модального окна */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  /* Стили для фона модального окна */
+  .modal-overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Фон будет под модальным окном */
+  }
+  
+  /* Кнопка закрытия модального окна */
+  .close-message-btn {
+    background-color: #cc0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     margin-top: 10px;
-}
-
-.marquee-container marquee {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: #FFD700;
-    padding: 5px;
-}
+    display: inline-block;
+  }
+  
+  .close-message-btn:hover {
+    background-color: #e74c3c;
+  }
+  
+  /* Поле ввода сообщения */
+  .message-input {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    margin-top: 10px;
+    font-size: 16px;
+  }
