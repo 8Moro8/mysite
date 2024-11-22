@@ -265,8 +265,8 @@ p {
 /* Адаптация под широкие экраны (мониторы больше 1440px) */
 @media (min-width: 1441px) {
   .open-message-btn {
-    right: 20px; /* Увеличенный отступ от правого края */
-    top: 800px; /* Увеличенный отступ от нижнего края */
+    right: 10px; /* Увеличенный отступ от правого края */
+    top: 83%; /* Увеличенный отступ от нижнего края */
     height: 90px; /* Крупнее кнопка */
     width: 90px;
     font-size: 16px; /* Увеличенный размер текста */
@@ -277,7 +277,7 @@ p {
 @media (max-width: 1440px) and (min-width: 1024px) {
   .open-message-btn {
     right: 20px; /* Стандартный отступ */
-    top: 30px;
+    top: 50px;
     height: 80px; /* Обычный размер кнопки */
     width: 80px;
     font-size: 14px;
@@ -357,7 +357,7 @@ p {
 
 /* Поле ввода сообщения */
 .message-input {
-  width: 100%;
+  width: 95%;
   height: 100px;
   padding: 10px;
   border-radius: 5px;
