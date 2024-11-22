@@ -123,6 +123,7 @@ h1, h2 {
     width: 100%;
   }
   
+
   /* Кнопки меню */
   .menu ul {
     list-style-type: none;
@@ -177,7 +178,7 @@ h1, h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 600px; /* Максимальная ширина контейнера */
+  max-width: 800px; /* Максимальная ширина контейнера */
   padding: 10px 100px;
   gap: 20px; /* Увеличиваем отступы между товарами */
 }
@@ -203,7 +204,7 @@ h1, h2 {
   /* Стиль для изображения товара */
 .product-item img {
   width: 100%; /* Ширина изображения на всю ширину контейнера */
-  max-height: 100px; /* Ограничиваем максимальную высоту изображения */
+  max-height: 400px; /* Ограничиваем максимальную высоту изображения */
   object-fit: cover; /* Обрезаем изображение по размеру контейнера */
   border-radius: 8px; /* Скругление углов изображения */
   margin-bottom: 10px; /* Отступ снизу */
@@ -286,125 +287,125 @@ p {
   }
   
   /* Кнопка для открытия окна сообщения */
+.open-message-btn {
+  position: fixed;
+  right: 10px;
+  top: 780px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 7px; /* Уменьшаем отступы для уменьшения кнопки */
+  border: none;
+  border-radius: 50%; /* Округлая форма */
+  cursor: pointer;
+  font-size: 12px; /* Уменьшаем размер шрифта */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 75px;  /* Меньше размер кнопки */
+  width: 75px;   /* Меньше размер кнопки */
+  display: flex; /* Для центрирования текста */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+/* Адаптация под широкие экраны (мониторы больше 1440px) */
+@media (min-width: 1441px) {
   .open-message-btn {
-    position: fixed;
-    right: 10px;
-    top: 780px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 7px 7px; /* Уменьшаем отступы для уменьшения кнопки */
-    border: none;
-    border-radius: 50%; /* Округлая форма */
-    cursor: pointer;
-    font-size: 12px; /* Уменьшаем размер шрифта */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    height: 75px;  /* Меньше размер кнопки */
-    width: 75px;   /* Меньше размер кнопки */
-    display: flex; /* Для центрирования текста */
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
+    right: 10px; /* Увеличенный отступ от правого края */
+    top: 83%; /* Увеличенный отступ от нижнего края */
+    height: 90px; /* Крупнее кнопка */
+    width: 90px;
+    font-size: 16px; /* Увеличенный размер текста */
   }
-  
-  /* Адаптация под широкие экраны (мониторы больше 1440px) */
-  @media (min-width: 1441px) {
-    .open-message-btn {
-      right: 20px; /* Увеличенный отступ от правого края */
-      top: 800px; /* Увеличенный отступ от нижнего края */
-      height: 90px; /* Крупнее кнопка */
-      width: 90px;
-      font-size: 16px; /* Увеличенный размер текста */
-    }
+}
+
+/* Адаптация под стандартные экраны (1024px–1440px) */
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .open-message-btn {
+    right: 20px; /* Стандартный отступ */
+    top: 50px;
+    height: 80px; /* Обычный размер кнопки */
+    width: 80px;
+    font-size: 14px;
   }
-  
-  /* Адаптация под стандартные экраны (1024px–1440px) */
-  @media (max-width: 1440px) and (min-width: 1024px) {
-    .open-message-btn {
-      right: 20px; /* Стандартный отступ */
-      top: 30px;
-      height: 80px; /* Обычный размер кнопки */
-      width: 80px;
-      font-size: 14px;
-    }
+}
+
+/* Адаптация под узкие экраны (меньше 1024px) */
+@media (max-width: 1023px) {
+  .open-message-btn {
+    right: 15px; /* Уменьшенный отступ */
+    top: 20px; /* Уменьшенный отступ */
+    height: 70px; /* Меньший размер кнопки */
+    width: 70px;
+    font-size: 12px; /* Уменьшенный размер текста */
   }
-  
-  /* Адаптация под узкие экраны (меньше 1024px) */
-  @media (max-width: 1023px) {
-    .open-message-btn {
-      right: 15px; /* Уменьшенный отступ */
-      top: 20px; /* Уменьшенный отступ */
-      height: 70px; /* Меньший размер кнопки */
-      width: 70px;
-      font-size: 12px; /* Уменьшенный размер текста */
-    }
+}
+
+.open-message-btn:hover {
+  background-color: #45a049;
+}
+
+/* Модальное окно */
+.message-modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #181818; /* Белый фон для контраста */
+  border-radius: 12px; /* Более округлые углы */
+  padding: 30px; /* Увеличенные отступы */
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более заметная тень */
+  z-index: 1000; /* Чтобы окно было поверх других элементов */
+  animation: fadeIn 0.3s ease-out; /* Плавное появление окна */
+}
+
+/* Анимация появления модального окна */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
   }
-  
-  .open-message-btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Модальное окно */
-  .message-modal {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    top: 50%;
-    left: 50%;
+  100% {
+    opacity: 1;
     transform: translate(-50%, -50%);
-    background-color: #181818; /* Белый фон для контраста */
-    border-radius: 12px; /* Более округлые углы */
-    padding: 30px; /* Увеличенные отступы */
-    width: 400px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более заметная тень */
-    z-index: 1000; /* Чтобы окно было поверх других элементов */
-    animation: fadeIn 0.3s ease-out; /* Плавное появление окна */
   }
-  
-  /* Анимация появления модального окна */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -60%);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-  }
-  
-  /* Стили для фона модального окна */
-  .modal-overlay {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999; /* Фон будет под модальным окном */
-  }
-  
-  /* Кнопка закрытия модального окна */
-  .close-message-btn {
-    background-color: #cc0000;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: inline-block;
-  }
-  
-  .close-message-btn:hover {
-    background-color: #e74c3c;
-  }
-  
-  /* Поле ввода сообщения */
-  .message-input {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #000000;
-    margin-top: 10px;
-    font-size: 16px;
-  }
+}
+
+/* Стили для фона модального окна */
+.modal-overlay {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Фон будет под модальным окном */
+}
+
+/* Кнопка закрытия модального окна */
+.close-message-btn {
+  background-color: #cc0000;
+  color: white;
+  padding: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.close-message-btn:hover {
+  background-color: #e74c3c;
+}
+
+/* Поле ввода сообщения */
+.message-input {
+  width: 95%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  margin-top: 10px;
+  font-size: 16px;
+}
