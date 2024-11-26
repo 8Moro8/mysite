@@ -1,1 +1,4 @@
 30011002rR&&&
+
+"https://mmlykvajpysgizmspxwd.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbHlrdmFqcHlzZ2l6bXNweHdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI2MjczNzIsImV4cCI6MjA0ODIwMzM3Mn0.14jlDv22D1g5PvBva5zEZ09GjR2cs5jHYFbPHeXAjxc"
