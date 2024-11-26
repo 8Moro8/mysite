@@ -138,6 +138,63 @@ document.addEventListener("DOMContentLoaded", function() {
     checkLoginStatus();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const addProductBtn = document.getElementById('add-product-btn');
+    const addProductModal = document.getElementById('add-product-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const addProductForm = document.getElementById('add-product-form');
+
+    // Открытие модального окна
+    addProductBtn.addEventListener('click', () => {
+        addProductModal.style.display = 'flex';
+    });
+
+    // Закрытие модального окна
+    closeModalBtn.addEventListener('click', () => {
+        addProductModal.style.display = 'none';
+    });
+
+    // Обработка отправки формы
+    addProductForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('product-name').value;
+        const price = document.getElementById('product-price').value;
+        const isService = document.getElementById('is-service').checked;
+        const photo = document.getElementById('product-photo').files[0];
+
+        if (!name || !price || !photo) {
+            alert("Пожалуйста, заполните все поля.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('isService', isService);
+        formData.append('photo', photo);
+
+        // Отправка данных на сервер
+        try {
+            const response = await fetch('/add-product', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert('Товар успешно добавлен!');
+                addProductModal.style.display = 'none'; // Закрытие модального окна
+            } else {
+                alert('Ошибка при добавлении товара: ' + result.error);
+            }
+        } catch (error) {
+            alert('Произошла ошибка при отправке данных.');
+        }
+    });
+});
+
+
 // Хеширование пароля
 function hashPassword(password) {
     return CryptoJS.SHA256(password).toString();

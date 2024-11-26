@@ -78,10 +78,39 @@ def login():
     return jsonify({"message": "Успешный вход", "user": user}), 200
 
 # Получение списка услуг
-@app.route('/services', methods=['GET'])
-def get_services():
-    services = supabase.table('services').select('*').execute()
-    return jsonify(services.data), 200
+@app.route('/products_services', methods=['GET'])
+def get_products_services():
+    products_services = supabase.table('products_services').select('*').execute()
+    return jsonify(products_services.data), 200
+
+@app.route('/add-product', methods=['POST'])
+def add_product():
+    name = request.form.get('name')
+    price = request.form.get('price')
+    is_service = request.form.get('isService') == 'true'
+    photo = request.files.get('photo')
+
+    if not name or not price or not photo:
+        return jsonify({'error': 'Все поля обязательны для заполнения'}), 400
+
+    # Загружаем фото в Supabase (или другую систему хранения)
+    file_path = f"products/{photo.filename}"
+    file = supabase.storage.from_("public").upload(file_path, photo)
+
+    # Добавляем товар в таблицу
+    product_data = {
+        'name': name,
+        'price': price,
+        'is_service': is_service,
+        'photo_url': file['publicURL']
+    }
+
+    response = supabase.table('products').insert([product_data]).execute()
+
+    if response.status_code == 201:
+        return jsonify({'message': 'Товар успешно добавлен'}), 201
+    else:
+        return jsonify({'error': 'Ошибка при добавлении товара'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
