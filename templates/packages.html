@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Охранное агентство "Страж"</title>
+    <link rel="stylesheet" href="/static/packages-s.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    
+    <!-- Главная страница -->
+    <div id="main-container">
+        <div class="header">
+            <h1>Охранное агентство "Страж"</h1>
+            <button class="menu-toggle" id="menu-toggle">Меню</button>
+            <button id="logout-btn">Выйти</button> <!-- Кнопка выхода -->
+        </div>
+            
+        <div class="menu">
+            <button class="close-btn" onclick="document.getElementById('menu-toggle-checkbox').checked = false;">Закрыть</button>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html" id="about-link">О нас</a></li>
+                <li><a href="employees.html">Сотрудники компании</a></li>
+                <li><a href="history.html">История Защиты</a></li>
+            </ul>
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee">
+                Добро пожаловать на сайт охранного агентства "Страж"! Надежная защита для вашего бизнеса и дома.
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="product-list">
+            <div class="product-item" onclick="window.location.href='product1.html'">
+                <img src="large_2000_217.jpg" alt="Продукт 1">
+                <h3>Защита людьми</h3>
+                <p>Цена: 5000 ₸</p>
+                <p>Минимальное описание продукта или услуги по защите людьми. Нажмите для подробностей.</p>
+            </div>
+        
+            <div class="product-item" onclick="window.location.href='product2.html'">
+                <img src="large_2000_217.jpg" alt="Продукт 2">
+                <h3>Защита технологиями</h3>
+                <p>Цена: 8000 ₸</p>
+                <p>Минимальное описание продукта или услуги по защите с использованием технологий. Нажмите для подробностей.</p>
+            </div>
+        </div>
+                <!-- Кнопка для открытия модального окна с сообщением -->
+        <button class="open-message-btn">Написать сообщение</button>
+
+        <!-- Модальное окно для ввода сообщения -->
+        <div class="modal-overlay"></div>
+        <div class="message-modal">
+            <h2>Ваше сообщение</h2>
+            <textarea class="message-input" placeholder="Введите сообщение..."></textarea>
+            <button class="close-message-btn">Закрыть</button>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer">
+            © 2024 Охранное агентство "Страж"
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
